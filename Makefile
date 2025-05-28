@@ -3,7 +3,8 @@ CC      = gcc
 CFLAGS  = -Wall -Wextra -O2
 TARGET  = autoclicker
 SRCS    = src/main.c src/event_manager.c src/mouse_event.c
-OBJS    = $(SRCS:.c=.o)
+OBJDIR  = build
+OBJS    = $(SRCS:src/%.c=$(OBJDIR)/%.o)
 
 .PHONY: all cleans
 MAKEFLAGS += --silent
@@ -20,7 +21,8 @@ build: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
-%.o: %.c
+$(OBJDIR)/%.o: src/%.c
+	@mkdir -p $(OBJDIR)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 run:
@@ -31,5 +33,5 @@ run:
 	./$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJDIR) $(TARGET)
 	@echo Clean finished!
