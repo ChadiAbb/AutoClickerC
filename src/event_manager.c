@@ -25,6 +25,13 @@ void* monitor_hotkey() {
             }
             Sleep(200);
         }
+
+        if (GetAsyncKeyState('C') & 0x8000) {
+            printf("Exiting program...\n");
+            exit(0);
+        }
+
+        Sleep(50);
     }
     return NULL;
 }
