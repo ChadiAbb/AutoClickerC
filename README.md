@@ -16,6 +16,10 @@ AutoClickerC is a lightweight and efficient auto-clicker application written in 
    ```bash
    git clone https://github.com/your-repo/AutoClickerC.git
    cd AutoClickerC
+   ```
+
+2. Run the auto-clicker
+  ```bash
    mingw32-make.exe build
    mingw32-make.exe run
    ```
