@@ -10,7 +10,6 @@ void click() {
 
     in[0].type = INPUT_MOUSE;
     in[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
-
     in[1].type = INPUT_MOUSE;
     in[1].mi.dwFlags = MOUSEEVENTF_LEFTUP;
 

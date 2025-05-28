@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include "event_manager.h"
 #include "mouse_event.h"
-
 #include "globals.h"
 
 // Define global variables
@@ -18,7 +17,6 @@ int main(void) {
     }
 
     printf("Press F6 to toggle the autoclicker\n");
-
     pthread_t monitor_thread;
     if (pthread_create(&monitor_thread, NULL, monitor_hotkey, NULL) != 0) {
         fprintf(stderr, "Failed to create monitor thread\n");
