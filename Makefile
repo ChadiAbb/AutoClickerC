@@ -2,7 +2,7 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -O2
 TARGET  = autoclicker
-SRCS    = src/main.c
+SRCS    = src/main.c src/event_manager.c src/mouse_event.c
 OBJS    = $(SRCS:.c=.o)
 
 .PHONY: all cleans
@@ -24,13 +24,12 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 run:
-	if [ ! -f $(TARGET).exe ]; then \
+	if [ ! -f $(TARGET) ]; then \
 		echo "Compile not done"; \
 		exit 1; \
 	fi
-	./autoclicker.exe
-
+	./$(TARGET)
 
 clean:
-	rm -f $(OBJS) $(TARGET).exe
+	rm -f $(OBJS) $(TARGET)
 	@echo Clean finished!
